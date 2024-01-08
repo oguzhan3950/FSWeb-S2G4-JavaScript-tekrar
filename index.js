@@ -50,9 +50,11 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(r) {
+  cemberCevre = 2 * pi * r;
+  return CemberinCevresi
 }
+console.log(CemberinCevresi(5));
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -64,9 +66,11 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
+function CemberinAlani(yaricap, pi) {
+  return pi * Math.pow(yaricap, 2);
   /* kodlar buraya */
 }
+console.log(CemberinAlani(15, pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -98,26 +102,65 @@ let ucetambolunenler,
   tekraredensayilar;
 
 // 3a çözümü
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+
+for (let i = 1; i < sayilar.length; i++) {
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+}
 
 /* kodlar buraya */
 
 // 3b çözümü:
+ucetambolunenler = [];
+sayilar.forEach(function (sayi) {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
 
 /* kodlar buraya */
 
 // 3c çözümü:
+ucebolunenlerintoplami = ucetambolunenler.reduce((acc, sayi) => acc + sayi, 0);
+
 
 /* kodlar buraya */
 
 // 3d çözümü
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
 /* kodlar buraya */
 
 // 3e çözümü
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b);
+
 
 /* kodlar buraya */
 
 // 3f çözümü
+tekraredensayilar = [];
+let sayilarinFrekansi = {};
+
+for (let i = 0; i < sayilar.length; i++) {
+  if (sayilarinFrekansi[sayilar[i]] === undefined) {
+    sayilarinFrekansi[sayilar[i]] = 1;
+  } else {
+    sayilarinFrekansi[sayilar[i]]++;
+  }
+}
+
+for (let sayi in sayilarinFrekansi) {
+  if (sayilarinFrekansi[sayi] > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${sayilarinFrekansi[sayi]} kere tekrar edilmiştir`);
+  }
+}
+
 
 /* kodlar buraya */
 
